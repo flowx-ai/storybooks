@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storybook Versions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .version {
+            margin-top: 10px;
+        }
+
+        .toolkit {
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .pagination {
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Available Storybook Versions</h1>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search versions or toolkits..." oninput="renderVersions()">
+    </div>
+
+    <!-- Version List -->
+    <div id="version-list">Loading...</div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        <button onclick="prevPage()" id="prev-btn" disabled>Previous</button>
+        <span id="page-info"></span>
+        <button onclick="nextPage()" id="next-btn" disabled>Next</button>
+    </div>
+
+    <script>
+        let versionsData = [];    // Stores all version data
+        let currentPage = 1;      // Current page for pagination
+        const versionsPerPage = 5; // Number of versions to display per page
+
+        // Fetch the JSON file with version info
+        fetch('./versions.json')
+            .then(response => response.json())
+            .then(data => {
+                versionsData = data.versions;
+                renderVersions();  // Initial render
+            })
+            .catch(error => {
+                document.getElementById('version-list').innerHTML = 'Error loading versions';
+                console.error('Error loading versions.json:', error);
+            });
+
+        // Function to render versions based on search and pagination
+        function renderVersions() {
+            const versionListDiv = document.getElementById('version-list');
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+            // Filter based on search term
+            const filteredVersions = versionsData.filter(version => {
+                return version.version.includes(searchTerm) ||
+                    version.toolkits.some(toolkit => toolkit.toLowerCase().includes(searchTerm));
+            });
+
+            // Calculate pagination
+            const totalPages = Math.ceil(filteredVersions.length / versionsPerPage);
+            const start = (currentPage - 1) * versionsPerPage;
+            const end = start + versionsPerPage;
+            const paginatedVersions = filteredVersions.slice(start, end);
+
+            // Clear and display versions
+            versionListDiv.innerHTML = '';
+            paginatedVersions.forEach(version => {
+                const versionDiv = document.createElement('div');
+                versionDiv.classList.add('version');
+                versionDiv.innerHTML = `<h2>Version ${version.version}</h2>`;
+
+                version.toolkits.forEach(toolkit => {
+                    const toolkitDiv = document.createElement('div');
+                    toolkitDiv.classList.add('toolkit');
+                    toolkitDiv.innerHTML = `<a href="./${version.version}/${toolkit}/" target="_blank">${toolkit}</a>`;
+                    versionDiv.appendChild(toolkitDiv);
+                });
+
+                versionListDiv.appendChild(versionDiv);
+            });
+
+            // Update pagination controls
+            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prev-btn').disabled = currentPage <= 1;
+            document.getElementById('next-btn').disabled = currentPage >= totalPages;
+        }
+
+        // Pagination functions
+        function nextPage() {
+            currentPage++;
+            renderVersions();
+        }
+
+        function prevPage() {
+            currentPage--;
+            renderVersions();
+        }
+    </script>
+</body>
+
+</html>

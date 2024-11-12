@@ -1,0 +1,12 @@
+{
+  "versions": [
+    {
+      "version": "1.0.0",
+      "toolkits": [
+        "angular-new-ui-toolkit",
+        "angular-ui-toolkit",
+        "react-ui-toolkit"
+      ]
+    }
+  ]
+}

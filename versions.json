@@ -1,9 +1,8 @@
 {
   "versions": [
     {
-      "version": "1.0.0",
+      "version": "v5.80.6",
       "toolkits": [
-        "angular-new-ui-toolkit",
         "angular-ui-toolkit",
         "react-ui-toolkit"
       ]

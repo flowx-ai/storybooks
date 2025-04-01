@@ -4,41 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storybook Versions</title>
+    <title>FlowX Storybooks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
         }
 
         h1 {
-            color: #333;
+            color: #FDB913;
+            margin-bottom: 30px;
         }
 
         .version {
-            margin-top: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .version h2 {
+            color: #FDB913;
+            margin: 0 0 10px 0;
+        }
+
+        .version-info {
+            color: #cccccc;
+            font-size: 1em;
+            margin-bottom: 10px;
         }
 
         .toolkit {
-            margin-left: 20px;
+            margin-left: 5px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toolkit a {
+            color: #ffffff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .toolkit a:hover {
+            color: #FDB913;
+        }
+
+        .toolkit i {
+            font-size: 1.2em;
+            width: 1.2em;
+            text-align: center;
+        }
+
+        .toolkit i.fa-angular {
+            color: #dd0031;
+        }
+
+        .toolkit i.fa-react {
+            color: #61dafb;
         }
 
         .search-bar {
             margin-bottom: 20px;
         }
 
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-bar input:focus {
+            color: #ffffff;
+            border-color: #FDB913;
+        }
+
+        .search-bar input::placeholder {
+            color: #888888;
+        }
+
         .pagination {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         .pagination button {
-            margin: 0 5px;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background-color: #FDB913;
+            color: #1a1a1a;
+        }
+
+        .pagination button:disabled {
+            background-color: #1a1a1a;
+            color: #666666;
+            cursor: not-allowed;
+            border-color: #666666;
+        }
+
+        #page-info {
+            color: #cccccc;
         }
     </style>
 </head>
 
 <body>
-    <h1>Available Storybook Versions</h1>
+    <h1>FlowX Storybooks</h1>
 
     <!-- Search Bar -->
     <div class="search-bar">
@@ -94,8 +189,24 @@
 
             // Filter based on search term
             const filteredVersions = versionsData.filter(version => {
-                return version.version.includes(searchTerm) ||
-                    version.toolkits.some(toolkit => toolkit.toLowerCase().includes(searchTerm));
+                const searchTermLower = searchTerm.toLowerCase();
+                const flowXVersion = version.release.toLowerCase();
+                const sdkVersion = version.version.toLowerCase();
+                const toolkitNames = version.toolkits.map(t => t.toLowerCase());
+                
+                // If search term matches FlowX version exactly, prioritize it
+                if (flowXVersion === searchTermLower) {
+                    return true;
+                }
+                
+                // If search term is a partial match of FlowX version
+                if (flowXVersion.includes(searchTermLower)) {
+                    return true;
+                }
+                
+                // Then check SDK version and toolkits
+                return sdkVersion.includes(searchTermLower) ||
+                    toolkitNames.some(toolkit => toolkit.includes(searchTermLower));
             });
 
             // Calculate pagination
@@ -109,12 +220,30 @@
             paginatedVersions.forEach(version => {
                 const versionDiv = document.createElement('div');
                 versionDiv.classList.add('version');
-                versionDiv.innerHTML = `<h2>Version ${version.version}</h2>`;
+                versionDiv.innerHTML = `
+                    <h2>FlowX ${version.release}</h2>
+                    <div class="version-info">
+                        <div>SDK Version: ${version.version.replace(/^v/, '')}</div>
+                    </div>
+                `;
 
                 version.toolkits.forEach(toolkit => {
                     const toolkitDiv = document.createElement('div');
                     toolkitDiv.classList.add('toolkit');
-                    toolkitDiv.innerHTML = `<a href="./${version.version}/${toolkit}/" target="_blank">${toolkit}</a>`;
+                    let icon, displayName;
+                    
+                    if (toolkit === 'angular-ui-toolkit') {
+                        icon = 'fa-angular';
+                        displayName = 'Angular UI Toolkit';
+                    } else if (toolkit === 'react-ui-toolkit') {
+                        icon = 'fa-react';
+                        displayName = 'React UI Toolkit';
+                    } else {
+                        icon = 'fa-code';
+                        displayName = toolkit;
+                    }
+                    
+                    toolkitDiv.innerHTML = `<i class="fab ${icon}"></i><a href="./${version.version}/${toolkit}/" target="_blank">${displayName}</a>`;
                     versionDiv.appendChild(toolkitDiv);
                 });
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowX Storybooks</title>
+    <title>FlowX.AI Storybooks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
@@ -73,10 +73,13 @@
 
         .search-bar {
             margin-bottom: 20px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .search-bar input {
             width: 100%;
+            max-width: 100%;
             padding: 10px;
             border: 2px solid transparent;
             border-radius: 4px;
@@ -85,6 +88,7 @@
             font-size: 16px;
             outline: none;
             transition: all 0.2s;
+            box-sizing: border-box;
         }
 
         .search-bar input:focus {
@@ -133,7 +137,7 @@
 </head>
 
 <body>
-    <h1>FlowX Storybooks</h1>
+    <h1>FlowX.AI Storybooks</h1>
 
     <!-- Search Bar -->
     <div class="search-bar">
@@ -194,12 +198,12 @@
                 const sdkVersion = version.version.toLowerCase();
                 const toolkitNames = version.toolkits.map(t => t.toLowerCase());
                 
-                // If search term matches FlowX version exactly, prioritize it
+                // If search term matches FlowX.AI version exactly, prioritize it
                 if (flowXVersion === searchTermLower) {
                     return true;
                 }
                 
-                // If search term is a partial match of FlowX version
+                // If search term is a partial match of FlowX.AI version
                 if (flowXVersion.includes(searchTermLower)) {
                     return true;
                 }
@@ -221,7 +225,7 @@
                 const versionDiv = document.createElement('div');
                 versionDiv.classList.add('version');
                 versionDiv.innerHTML = `
-                    <h2>FlowX ${version.release}</h2>
+                    <h2>FlowX.AI ${version.release}</h2>
                     <div class="version-info">
                         <div>SDK Version: ${version.version.replace(/^v/, '')}</div>
                     </div>

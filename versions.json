@@ -1,16 +1,16 @@
 {
   "versions": [
     {
-      "version": "v5.80.6",
       "release": "4.7.0",
+      "version": "v5.80.6",
       "toolkits": [
         "angular-ui-toolkit",
         "react-ui-toolkit"
       ]
     },
     {
-      "version": "v5.83.8",
       "release": "4.7.1",
+      "version": "v5.83.8",
       "toolkits": [
         "angular-ui-toolkit",
         "react-ui-toolkit"

@@ -163,8 +163,8 @@
         fetch('./versions.json')
             .then(response => response.json())
             .then(data => {
-                // Sort versions in descending order based on version number
-                versionsData = data.versions.sort((a, b) => compareVersions(b.version, a.version));
+                // Sort versions in descending order based on FlowX release version number
+                versionsData = data.versions.sort((a, b) => compareVersions(b.release, a.release));
                 renderVersions();  // Initial render
             })
             .catch(error => {
@@ -197,17 +197,17 @@
                 const flowXVersion = version.release.toLowerCase();
                 const sdkVersion = version.version.toLowerCase();
                 const toolkitNames = version.toolkits.map(t => t.toLowerCase());
-                
+
                 // If search term matches FlowX.AI version exactly, prioritize it
                 if (flowXVersion === searchTermLower) {
                     return true;
                 }
-                
+
                 // If search term is a partial match of FlowX.AI version
                 if (flowXVersion.includes(searchTermLower)) {
                     return true;
                 }
-                
+
                 // Then check SDK version and toolkits
                 return sdkVersion.includes(searchTermLower) ||
                     toolkitNames.some(toolkit => toolkit.includes(searchTermLower));
@@ -235,7 +235,7 @@
                     const toolkitDiv = document.createElement('div');
                     toolkitDiv.classList.add('toolkit');
                     let icon, displayName;
-                    
+
                     if (toolkit === 'angular-ui-toolkit') {
                         icon = 'fa-angular';
                         displayName = 'Angular UI Toolkit';
@@ -246,7 +246,7 @@
                         icon = 'fa-code';
                         displayName = toolkit;
                     }
-                    
+
                     toolkitDiv.innerHTML = `<i class="fab ${icon}"></i><a href="./${version.release}/${toolkit}/" target="_blank">${displayName}</a>`;
                     versionDiv.appendChild(toolkitDiv);
                 });

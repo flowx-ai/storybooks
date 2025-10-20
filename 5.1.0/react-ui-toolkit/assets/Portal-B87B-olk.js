@@ -1,0 +1,1 @@
+import{R as a}from"./index-CluZi8Ot.js";const r=({children:e,container:t})=>a.createPortal(e,t||document.body);try{r.displayName="Portal",r.__docgenInfo={description:"",displayName:"Portal",props:{container:{defaultValue:null,description:"",name:"container",required:!1,type:{name:"HTMLElement | undefined"}}}}}catch{}export{r as P};

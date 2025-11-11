@@ -1,0 +1,46 @@
+{
+  "name": "@flowx/react-ui-toolkit",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.cjs",
+  "types": "./index.d.ts",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts"
+    }
+  },
+  "dependencies": {
+    "@base-ui-components/react": "https://pkg.pr.new/@base-ui-components/react@3070",
+    "lodash": "4.17.21",
+    "ag-grid-community": "32.2.0",
+    "clsx": "2.1.1",
+    "date-fns": "2.30.0",
+    "url": "0.11.4",
+    "ag-grid-react": "32.2.2",
+    "air-datepicker": "3.5.3",
+    "tabbable": "6.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite-plugin-lib-inject-css": "2.1.1",
+    "@nx/vite": "18.2.4",
+    "vite": "~5.0.0",
+    "vite-plugin-dts": "~3.8.1",
+    "react": "~18",
+    "react-dom": "~18"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "registry": "https://nexus-jx.dev.rd.flowx.ai/repository/npm-private/"
+  },
+  "peerDependencies": {
+    "react": "~18",
+    "react-dom": "~18"
+  }
+}

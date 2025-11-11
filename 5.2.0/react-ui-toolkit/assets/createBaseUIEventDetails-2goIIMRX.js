@@ -1,0 +1,1 @@
+import{E as s}from"./useRenderElement-CQQ5I8lv.js";function i(e,t,a,n){let r=!1,o=!1;const c=n??s;return{reason:e,event:t??new Event("base-ui"),cancel(){r=!0},allowPropagation(){o=!0},get isCanceled(){return r},get isPropagationAllowed(){return o},trigger:a,...c}}function u(e,t,a){const n=s;return{reason:e,event:t??new Event("base-ui"),...n}}export{u as a,i as c};

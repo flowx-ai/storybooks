@@ -14,7 +14,7 @@
     }
   },
   "dependencies": {
-    "lodash": "4.17.21",
+    "lodash": "4.17.23",
     "ag-grid-community": "32.2.0",
     "clsx": "2.1.1",
     "react-use-measure": "2.1.1",

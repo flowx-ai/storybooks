@@ -1,0 +1,1 @@
+export declare const FlxBreadcrumbsList: import('../../../../../../node_modules/react').ForwardRefExoticComponent<Omit<import('../../../../../../node_modules/react').DetailedHTMLProps<import('../../../../../../node_modules/react').OlHTMLAttributes<HTMLOListElement>, HTMLOListElement>, "ref"> & import('../../../../../../node_modules/react').RefAttributes<HTMLOListElement>>;

@@ -159,6 +159,14 @@
         "angular-ui-toolkit",
         "react-ui-toolkit"
       ]
+    },
+    {
+      "release": "5.1.4",
+      "version": "v9.163.6",
+      "toolkits": [
+        "angular-ui-toolkit",
+        "react-ui-toolkit"
+      ]
     }
   ]
 }

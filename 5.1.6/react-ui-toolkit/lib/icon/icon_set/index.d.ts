@@ -1,0 +1,3 @@
+declare const _default: { [key in FlxIconName]: string; };
+export default _default;
+export type FlxIconName = 'arrowLeft' | 'arrowRight' | 'calendar' | 'caretDown' | 'caretLeft' | 'caretRight' | 'check' | 'checkboxChecked' | 'checkboxIndeterminate' | 'checkboxUnchecked' | 'circleNotch' | 'clearCircle' | 'close' | 'cross' | 'dismiss' | 'documentPreviewEmpty' | 'documentPreviewError' | 'documentPreviewLoading' | 'documents' | 'edit' | 'error' | 'eye' | 'file' | 'filterActive' | 'filter' | 'image' | 'infoCircle' | 'info' | 'radioChecked' | 'radioUnchecked' | 'retry' | 'search' | 'send' | 'success' | 'trash' | 'warning';

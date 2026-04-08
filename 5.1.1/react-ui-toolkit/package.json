@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@base-ui-components/react": "https://pkg.pr.new/@base-ui-components/react@3070",
-    "lodash": "4.17.21",
+    "lodash": "4.18.1",
     "ag-grid-community": "32.2.0",
     "clsx": "2.1.1",
     "date-fns": "2.30.0",

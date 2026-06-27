@@ -1,0 +1,1 @@
+import{r as s}from"./iframe-BY6wcYIF.js";import{u as o}from"./useIsoLayoutEffect-DPTQ2Cfx.js";import{a as n}from"./useOpenChangeComplete-B78n_1wc.js";function m(r,a){const t=s.useRef(r),e=n(a);o(()=>{t.current!==r&&e(t.current)},[r,e]),o(()=>{t.current=r},[r])}export{m as u};

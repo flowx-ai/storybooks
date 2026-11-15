@@ -1,0 +1,2 @@
+declare const FlxForm: <TFieldValues extends import('react-hook-form').FieldValues, TContext = any, TTransformedValues = TFieldValues>({ children, watch, getValues, getFieldState, setError, clearErrors, setValue, setValues, trigger, formState, resetField, reset, handleSubmit, unregister, control, register, setFocus, subscribe, }: import('react-hook-form').FormProviderProps<TFieldValues, TContext, TTransformedValues>) => React.JSX.Element;
+export { FlxForm };

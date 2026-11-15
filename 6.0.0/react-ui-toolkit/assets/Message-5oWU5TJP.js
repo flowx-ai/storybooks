@@ -1,0 +1,21 @@
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{t}from"./jsx-runtime-BB9-612F.js";import{i as n,r}from"./react-CvSb7aOu.js";import{a as i,c as a,o,s}from"./blocks-DQsjqlNX.js";import{n as c,r as l,t as u}from"./Message.stories-CwQi5CaH.js";function d(e){let t={code:`code`,h1:`h1`,h2:`h2`,pre:`pre`,...n(),...e.components};return(0,p.jsxs)(p.Fragment,{children:[(0,p.jsx)(o,{of:c}),`
+`,(0,p.jsx)(t.h1,{id:`message`,children:`Message`}),`
+`,(0,p.jsx)(t.h2,{id:`import`,children:`Import`}),`
+`,(0,p.jsx)(t.pre,{children:(0,p.jsx)(t.code,{className:`language-ts`,children:`import { FlxMessage } from '@flowx/ui-toolkit/react'
+`})}),`
+`,(0,p.jsx)(t.h2,{id:`inputs`,children:`Inputs`}),`
+`,(0,p.jsx)(i,{children:`
+| Name             | Description                              | Default | Comments       |
+| ---------------- | ---------------------------------------- | ------- | -------------- |
+| type             | "success" / "warning" / "error" / "info" | success |                |
+| display          | "text" / "border" / "fill"               | border  |                |
+| layout           | "row"/ "column"                          | row     |                |
+| iconComponent    | ReactElement                             | -       | icon component |
+`}),`
+`,(0,p.jsx)(t.h2,{id:`usage`,children:`Usage`}),`
+`,(0,p.jsx)(s,{of:u}),`
+`,(0,p.jsx)(t.h2,{id:`examples`,children:`Examples`}),`
+`,(0,p.jsx)(t.pre,{children:(0,p.jsx)(t.code,{className:`language-tsx`,children:`<FlxMessage type="success">
+  This is a success message
+</FlxMessage>
+`})})]})}function f(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,p.jsx)(t,{...e,children:(0,p.jsx)(d,{...e})}):d(e)}var p;function m(){return(m=e((()=>{p=t(),r(),a(),l()})))()}m();export{f as default};

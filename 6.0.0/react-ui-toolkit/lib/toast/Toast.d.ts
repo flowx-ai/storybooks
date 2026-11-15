@@ -1,0 +1,14 @@
+import { ComponentPropsWithoutRef, ReactElement } from '../../../../../../node_modules/react';
+import { ToastData } from '@flowx/core-sdk';
+import { FlxIconProps } from '../icon/Icon';
+export interface FlxToastProps extends ComponentPropsWithoutRef<'li'> {
+    data: ToastData;
+    onCloseToast?: (data: ToastData) => void;
+    iconComponent?: ReactElement<FlxIconProps> | null;
+}
+export declare const FlxToast: ({ data, onCloseToast, className, iconComponent, ...props }: FlxToastProps) => import('../../../../../../node_modules/react').JSX.Element;
+declare const _default: {
+    MemoFlxToast: import('../../../../../../node_modules/react').MemoExoticComponent<({ data, onCloseToast, className, iconComponent, ...props }: FlxToastProps) => import('../../../../../../node_modules/react').JSX.Element>;
+    FlxToast: ({ data, onCloseToast, className, iconComponent, ...props }: FlxToastProps) => import('../../../../../../node_modules/react').JSX.Element;
+};
+export default _default;
